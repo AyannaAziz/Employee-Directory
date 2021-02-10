@@ -6,7 +6,7 @@ const Table = () => {
   const [usersToDisplay, setUsersToDisplay] = useState([]);
   const [sortDirection, setSortDirection] = useState("asc");
   const [searchTerm, setSearchTerm] = useState("");
- 
+
   useEffect(() => {
     axios.get("https://randomuser.me/api/?results=50").then((response) => {
       console.log(response.data);
@@ -14,6 +14,11 @@ const Table = () => {
       setUsers(response.data.results);
     });
   }, []);
+
+  //create handleSubmit function
+  const handleSubmit = () => {
+      
+  }
 
   const sortByName = () => {
     if (sortDirection === "asc") {
@@ -59,12 +64,22 @@ const Table = () => {
     setUsersToDisplay(sortedUsers);
   };
 
-// Table to display information from random employee api
+  // Table to display information from random employee api
   return (
     <div>
       <div>
-          <input type="text" placeholder="Enter phone number to filter" name="searchTerm" value={searchTerm} onChange={(e) => {setSearchTerm(e.target.value)}}></input>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter phone number to filter"
+            name="searchTerm"
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
+          ></input>
           <button className="btn btn-primary"> Search </button>
+        </form>
       </div>
       <div>
         <table className="table table-striped">
