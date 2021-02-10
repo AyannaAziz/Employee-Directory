@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Table = () => {
   const [users, setUsers] = useState([]);
   const [usersToDisplay, setUsersToDisplay] = useState([]);
   const [sortDirection, setSortDirection] = useState("asc");
-  const [searchTerm, setSearchTerm] = useState("");
-
+  
   useEffect(() => {
     axios.get("https://randomuser.me/api/?results=50").then((response) => {
       console.log(response.data);
@@ -15,20 +15,9 @@ const Table = () => {
     });
   }, []);
 
-  //create handleSubmit function , if search term is true return true and that will be returned in filtered users
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const filteredUsers = users.filter((user) => {
-      return user.phone.includes(searchTerm);
-    });
+  
 
-    setUsersToDisplay(filteredUsers);
-  };
-
-  const handleReset = () => {
-    setUsersToDisplay(users);
-  };
-
+  //
   const sortByName = () => {
     if (sortDirection === "asc") {
       sortByNameAsc();
@@ -39,6 +28,7 @@ const Table = () => {
     }
   };
 
+  //Function to sort employees by their name in ascending order 
   const sortByNameAsc = () => {
     const tempUsers = [...users];
     const sortedUsers = tempUsers.sort((a, b) => {
@@ -56,6 +46,7 @@ const Table = () => {
     setUsersToDisplay(sortedUsers);
   };
 
+  //Function to sort employees by their name in descending order
   const sortByNameDesc = () => {
     const tempUsers = [...users];
     const sortedUsers = tempUsers.sort((a, b) => {
@@ -73,29 +64,10 @@ const Table = () => {
     setUsersToDisplay(sortedUsers);
   };
 
-  // Table to display information from random employee api
   return (
     <div>
       <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Enter phone number to filter"
-            name="searchTerm"
-            value={searchTerm}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-            }}
-          ></input>
-          <button className="btn btn-primary"> Search </button>
-          <button
-            className="btn btn-secondary"
-            onClick={handleReset}
-            type="button"
-          >
-            Reset
-          </button>
-        </form>
+       <SearchBar users={users} setUsersToDisplay={setUsersToDisplay}/>
       </div>
       <div>
         <table className="table table-striped">
