@@ -15,14 +15,17 @@ const Table = () => {
     });
   }, []);
 
-  //create handleSubmit function
-  const handleSubmit = () => {
+  //create handleSubmit function , if search term is true return true and that will be returned in filtered users
+  const handleSubmit = (e) => {
+      e.preventDefault();
       const filteredUsers = users.filter(user => {
         return user.phone.includes(searchTerm);
           
-      })
-  
-  }
+      });
+
+  setUsersToDisplay(filteredUsers);
+
+  };
 
   const sortByName = () => {
     if (sortDirection === "asc") {
