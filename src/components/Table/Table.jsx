@@ -17,14 +17,16 @@ const Table = () => {
 
   //create handleSubmit function , if search term is true return true and that will be returned in filtered users
   const handleSubmit = (e) => {
-      e.preventDefault();
-      const filteredUsers = users.filter(user => {
-        return user.phone.includes(searchTerm);
-          
-      });
+    e.preventDefault();
+    const filteredUsers = users.filter((user) => {
+      return user.phone.includes(searchTerm);
+    });
 
-  setUsersToDisplay(filteredUsers);
+    setUsersToDisplay(filteredUsers);
+  };
 
+  const handleReset = () => {
+    setUsersToDisplay(users);
   };
 
   const sortByName = () => {
@@ -86,6 +88,13 @@ const Table = () => {
             }}
           ></input>
           <button className="btn btn-primary"> Search </button>
+          <button
+            className="btn btn-secondary"
+            onClick={handleReset}
+            type="button"
+          >
+            Reset
+          </button>
         </form>
       </div>
       <div>
