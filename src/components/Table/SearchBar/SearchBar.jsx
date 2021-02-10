@@ -13,16 +13,17 @@ const SearchBar = ({ users, setUsersToDisplay }) => {
   };
 
   return (
-    <>
+    <div className="search-field">
+
+        <p>Enter telephone number to filter</p>
       <input
         type="text"
-        placeholder="Enter phone number to filter"
         name="searchTerm"
         onChange={(e) => {
           handleSubmit(e);
         }}
       ></input>
-    </>
+    </div>
   );
 };
 
