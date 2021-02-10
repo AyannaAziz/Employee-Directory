@@ -1,8 +1,13 @@
+import Table from "./components/Table/Table";
 
 function App() {
   return (
-    <div>
-    <h1>Hey yall</h1>
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <Table />
+        </div>
+      </div>
     </div>
   );
 }
