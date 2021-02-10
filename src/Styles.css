@@ -1,16 +1,1 @@
 
-.search-field {
-    display: flex;
-    align-content: center;
-    margin: 10px 0;
-    
-
-}
-
-.search-field p {
-    margin-right: 10px;
-    /* text-align: center;
-    height: 100%; */
-    margin-bottom: 0px;
-    font-weight: bold;
-}
