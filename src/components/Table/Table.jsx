@@ -17,7 +17,11 @@ const Table = () => {
 
   //create handleSubmit function
   const handleSubmit = () => {
-      
+      const filteredUsers = users.filter(user => {
+        return user.phone.includes(searchTerm);
+          
+      })
+  
   }
 
   const sortByName = () => {
