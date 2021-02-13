@@ -1,7 +1,7 @@
 {
-  "name": "employee-tracker",
+  "name": "employee-directory",
   "version": "0.1.0",
-  "homepage": "http://ayannaaziz.github.io/employee-tracker/",
+  "homepage": "https://ayannaaziz.github.io/employee-directory/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
