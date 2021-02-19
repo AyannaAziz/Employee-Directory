@@ -23,7 +23,7 @@ The application uses a [Random User API](https://randomuser.me/) to create a que
 
 ## Demo
 
-
+Visit the deployed website here https://ayannaaziz.github.io/Employee-Directory/
 ![](empldir.png)
 
 * Screenshot of application 
